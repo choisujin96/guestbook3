@@ -13,7 +13,24 @@ public class GuestVO {
 	
 	//생성자
 	public GuestVO() {
+		
+	}
+
+	
+
+	public GuestVO(int no, String password) {
 		super();
+		this.no = no;
+		this.password = password;
+	}
+
+
+
+	public GuestVO(String name, String password, String content) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.content = content;
 	}
 
 
@@ -27,6 +44,7 @@ public class GuestVO {
 	}
 
 
+	
 	//메소드gs
 	public int getNo() {
 		return no;

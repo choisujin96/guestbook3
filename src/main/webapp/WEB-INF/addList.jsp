@@ -1,16 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+
+    
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 	</head>
+	
+	
+	
 	<body>
-		<form>
+			<form>
 			<table border="1" width="540px">
 				<tr>
-					<td>이름</td>
+				<td>이름</td>
 					<td>
 						<input type="text" name="" value="">
 					</td>
@@ -31,49 +38,26 @@
 					</td>
 				</tr>
 			</table>
-		</form>
+			</form>
+		
 		<br>
 	
 		
+		<c:forEach items = "${requestScope.gList}" var = "guestVO">
 		<table border="1" width="540px">
 			<tr>
-				<td>[1]</td>
-				<td>이효리</td>
-				<td>2022-01-01</td>
+				<td>${guestVO.no}</td>
+				<td>${guestVO.name}</td>
+				<td>${guestVO.regdate}</td>
 				<td>
 					<a href="">삭제</a>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4">방문하고 갑니다.</td>
+				<td colspan="4">${guestVO.content}</td>
 			</tr>
 		</table>
-		<br>
-		
-		<table border="1" width="540px">
-			<tr>
-				<td>[1]</td>
-				<td>이효리</td>
-				<td>2022-01-01</td>
-				<td><a href="">삭제</a></td>
-			</tr>
-			<tr>
-				<td colspan="4">방문하고 갑니다.</td>
-			</tr>
-		</table>
-		<br>
-	
-		<table border="1" width="540px">
-			<tr>
-				<td>[1]</td>
-				<td>이효리</td>
-				<td>2022-01-01</td>
-				<td><a href="">삭제</a></td>
-			</tr>
-			<tr>
-				<td colspan="4">방문하고 갑니다.</td>
-			</tr>
-		</table>
+		</c:forEach>
 		<br>
 	</body>
 </html>
