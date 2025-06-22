@@ -34,7 +34,7 @@ public class GuestBookController extends HttpServlet {
 		//등록+리스트
 		if("list".equals(action)) {
 			
-			System.out.println("리스트33"); //확인 ㅇㅋ
+			System.out.println("리스트33");
 			
 			GuestBookDAO guestbookDAO = new GuestBookDAO();
 			
@@ -42,13 +42,14 @@ public class GuestBookController extends HttpServlet {
 			
 			request.setAttribute("gList", guestList);
 			
+			 //포워드
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/addList.jsp");
 			rd.forward(request, response);
 			
 		  //등록업무
 		} else if ("write".equals(action)) {
 			
-			System.out.println("등록"); //확인 ㅇㅋ
+			System.out.println("등록");
 			
 		
 			String name = request.getParameter("name");
@@ -68,20 +69,22 @@ public class GuestBookController extends HttpServlet {
 		   //삭제폼	
 		}  else if("dform".equals(action)) { 
 			
-			System.out.println("삭제폼"); //확인ㅇㅋ
+			System.out.println("삭제폼"); 
+
 			
-			 // 포워드
+			 //포워드
 		    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF//deleteForm.jsp");
 		    rd.forward(request, response);
 		
-		} else if("delete".equals(action)) { //삭제
-			System.out.println("삭제"); //확인오케
+		  //삭제  
+		} else if("delete".equals(action)) {
+			System.out.println("삭제"); 
 			
 			int no = Integer.parseInt(request.getParameter("no"));
 			String pw = request.getParameter("password");
 			
 			GuestVO guestVO = new GuestVO(no, pw);
-			
+
 			
 			GuestBookDAO guestbookDAO = new GuestBookDAO();
 			guestbookDAO.guestDelete(no, pw);

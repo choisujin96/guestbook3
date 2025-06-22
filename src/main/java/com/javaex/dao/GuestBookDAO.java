@@ -100,19 +100,18 @@ public class GuestBookDAO {
 					rs = pstmt.executeQuery();
 					
 					//4. 결과처리
-					while(rs.next()) {//반복한다`
+					while(rs.next()) {
 						
-						//ResultSet에서 각각의 값을 꺼내서 자바 변수에 담는다
+						
 						int no = rs.getInt("no");
 						String name = rs.getString("name");
 						String pw = rs.getString("password");
 						String content = rs.getString("content");
 						String regdate = rs.getString("reg_date");
 						
-						//1개의 VO로 묶어준다
+				
 						GuestVO guestVO = new GuestVO(no, name, pw, content, regdate);
 						
-						//리스트에 추가한다.
 						guestList.add(guestVO);
 					}
 				
@@ -149,15 +148,14 @@ public class GuestBookDAO {
 					
 					//4. 결과처리
 					System.out.println(count + " 건이 저장되었습니다.");
-					
-					
-					
+
 				} catch (SQLException e) {
 					System.out.println("error:" + e);			}
 				
 				this.close();
 				return count;
 		
+				//삭제
 			} 	public int guestDelete (int no, String pw) {
 				
 				System.out.println("guestDelete");
@@ -166,6 +164,7 @@ public class GuestBookDAO {
 				
 				this.connect();
 				
+				//3. SQL문 준비/ 바인딩/ 실행
 				try {
 					//-SQL문 준비
 					String query =" delete from  guestbook ";
